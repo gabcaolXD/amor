@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { 
+            background: linear-gradient(30deg,blue, red);
+            height: 100vh;
+            color: aliceblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            align-items: center;
+        }
+        input {
+            border-radius: 3px;
+            width: 40%;
+            max-width: 120px;
+            text-align: center;
+            padding: 7px;
+            border: none;
+
+        }
+
+        .button {
+            background: silver;
+            cursor: pointer;
+            padding: 7px;
+            
+        }
+
+        .button:hover {
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+           
+            
+
+        }
+
+        #in:hover {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+            animation: brilhar 1s infinite alternate;
+        }
+
+        @keyframes brilhar {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8);
+            }
+
+        }
+
+        #res {
+            color: black;
+            background-color:rgb(255, 255, 255, 0.7);
+            width: fit-content;
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border: none;
+            border-radius: 2px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            box-shadow: 2px 3px 5px  black;
+            text-align: center;
+            animation: brilhar  60s infinite alternate;
+        }
+
+      
+
+
+
+    </style>
+</head>
+<body>
+
+<h1>O quando vocês combinam</h1>
+<input type="text" id="t1" placeholder="Nome"> +
+<input type="text" id="t2" placeholder="Nome"> 
+<input type="button" value="💖" onclick="somar()" id="in"> 
+<div id="res">Será?
+</div>
+    
+</body>
+
+<script>
+    const n1 = document.getElementById('t1')
+    const n2 = document.getElementById('t2')
+    const r = document.getElementById('res')
+    function somar() {
+    
+    const s = Math.floor(Math.random() * 101);
+
+    const nome1 = n1.value;
+    const nome2 = n2.value;
+    let emoji = '';
+    if (s < 50) emoji = '💔😢';
+    else if (s > 50) emoji = '💘😊';
+
+    if (s < 50) r.innerText = `${nome1} e ${nome2} nunca vai acontecer ${emoji}`;
+    else if (s>50) r.innerText = `${nome1} e ${nome2} tem ${s}% de chance de se casar ${emoji}`;
+   
+
+
+    
+    }
+
+    const a = document.getElementById('in');
+    a.addEventListener('mouseenter',entrar);
+    a.addEventListener('mouseout',sair);
+    a.addEventListener('mousedown',clicar);
+    a.addEventListener('mouseup', soltar);
+
+    function entrar() {
+        a.style.background = 'linear-gradient(deg,silver, white)';
+        a.style.cursor = 'pointer'
+    }
+    function sair() {
+        a.style.background = 'white';
+        
+    }
+
+    function clicar() {
+        a.style.background = 'red';
+
+    }
+    function soltar() {
+        a.style.background = 'white';
+
+
+
+    }
+
+
+
+</script>
+</html>
